@@ -97,6 +97,32 @@ register_bitfields! {u32,
             Masked = 1
         ],
 
+        /// Execution state that the exception was taken from. The possible values of this bit are:
+        ///
+        /// 1 Exception taken from AArch32.
+        /// 0 Exception taken from AArch64.
+        M4 OFFSET(4) NUMBITS(1) [
+            AArch32 = 1,
+            AArch64 = 0
+        ]
+
+        /// AArch32 mode that an exception was taken from. The possible values are:
+        ///
+        /// M[3:0] | Mode
+        /// ------------------
+        /// 0b0000 | User
+        /// 0b0001 | FIQ
+        /// 0b0010 | IRQ
+        /// 0b0011 | Supervisor
+        /// 0b0111 | Abort
+        /// 0b1010 | Hyp
+        /// 0b1011 | Undefined
+        /// 0b1111 | System
+        ///
+        /// Other values are reserved. The effect of programming this field to a Reserved value is
+        /// that behavior is CONSTRAINED UNPREDICTABLE s described in Reserved values in System and
+        /// memory-mapped registers and translation table entries on page K1-6427.
+        ///
         /// AArch64 state (Exception level and selected SP) that an exception was taken from. The
         /// possible values are:
         ///
@@ -122,7 +148,16 @@ register_bitfields! {u32,
             EL1t = 0b0100,
             EL1h = 0b0101,
             EL2t = 0b1000,
-            EL2h = 0b1001
+            EL2h = 0b1001,
+            User = 0b0000,
+            FIQ  = 0b0001,
+            IRQ  = 0b0010,
+            Supervisor  = 0b0011,
+            Abort = 0b0111,
+            Hyp = 0b1010,
+            Undefined = 0b1011,
+            System = 0b1111
+
         ]
     ]
 }
