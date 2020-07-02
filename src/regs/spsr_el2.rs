@@ -104,7 +104,7 @@ register_bitfields! {u32,
         M4 OFFSET(4) NUMBITS(1) [
             AArch32 = 1,
             AArch64 = 0
-        ]
+        ],
 
         /// AArch32 mode that an exception was taken from. The possible values are:
         ///
