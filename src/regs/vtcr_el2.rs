@@ -26,8 +26,8 @@ register_bitfields! {u32,
         /// If the implementation only supports an 8-bit VMID, this field is RES0.
         /// This bit is RES0 if ARMv8.1-VMID16 is not implemented.
         VS  OFFSET(19) NUMBITS(1) [
-            EnableTTBR1Walks = 0,
-            DisableTTBR1Walks = 1
+            VMID8 = 0,
+            VMID16 = 1
         ],
 
 		/// Physical Address Size.
@@ -154,9 +154,9 @@ register_bitfields! {u32,
 
 pub struct Reg;
 
-impl RegisterReadWrite<u64, VTCR_EL2::Register> for Reg {
-    sys_coproc_read_raw!(u64, "VTCR_EL2");
-    sys_coproc_write_raw!(u64, "VTCR_EL2");
+impl RegisterReadWrite<u32, VTCR_EL2::Register> for Reg {
+    sys_coproc_read_raw!(u32, "VTCR_EL2");
+    sys_coproc_write_raw!(u32, "VTCR_EL2");
 }
 
 pub static VTCR_EL2: Reg = Reg {};
