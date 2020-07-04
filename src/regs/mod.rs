@@ -43,6 +43,7 @@ mod vbar_el1;
 mod vbar_el2;
 mod vtcr_el2;
 mod vttbr_el2;
+mod hstr_el2;
 
 // Export only the R/W traits and the static reg definitions
 pub use register::cpu::*;
@@ -87,3 +88,4 @@ pub use self::vbar_el1::VBAR_EL1;
 pub use self::vbar_el2::VBAR_EL2;
 pub use self::vtcr_el2::VTCR_EL2;
 pub use self::vttbr_el2::VTTBR_EL2;
+pub use self::hstr_el2::HSTR_EL2;
