@@ -25,6 +25,8 @@ register_bitfields! {u32,
         EC  OFFSET(26) NUMBITS(6) [
             Unknown               = 0b00_0000,
             TrappedWFIorWFE       = 0b00_0001,
+            TrappedMCRorMRC       = 0b00_0011,
+            TrappedMCRRorMRRC     = 0b00_0100,
             TrappedFP             = 0b00_0111,
             IllegalExecutionState = 0b00_1110,
             SVC64                 = 0b01_0101,
