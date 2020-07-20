@@ -27,3 +27,4 @@
 pub mod asm;
 pub mod barrier;
 pub mod regs;
+pub mod iss;
